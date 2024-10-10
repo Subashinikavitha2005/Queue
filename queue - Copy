@@ -1,0 +1,40 @@
+class Node:
+    def __init__(self,data):
+        self.data=data
+        self.next=None
+class LL:
+    def __init__(self):
+        self.front=None
+        self.rear=None
+    def enqueue(self,data):
+        data=int(input("enter a data:"))
+        newnode=Node(data)
+        if self.front is None and self.rear is None:
+            self.front=self.rear=newnode
+        else:
+            self.rear.next=newnode
+            self.rear=newnode
+    def dequeue(self):
+        if self.front is None and self.rear is None:
+            print("Queue is empty")
+        else:
+            print(f"{self.front.data} is deleted")
+            self.front=self.front.next
+    def peek(self):
+        if self.front is None and self.rear is None:
+            print("Queue is empty")
+        else:
+            print(f"The front elements is {self.front.data}")
+    def display(self):
+        if self.front is None and self.rear is None:
+            print("Queue is empty")
+        else:
+            temp=self.front
+            while temp:
+                print(f"Elements in queue{temp.data})
+                temp=temp.next
+obj=LL()
+obj.enqueue()
+obj.dequeue()
+obj.peek()
+obj.display()
